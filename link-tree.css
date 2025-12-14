@@ -1,0 +1,129 @@
+/* Reset and base styles for mobile-first approach */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a1a; /* Dark moody background */
+    color: #ffffff; /* White text for contrast */
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+/* Grainy film texture overlay using CSS pseudo-element with noise simulation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.02) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.02) 0%, transparent 50%);
+    background-size: 100px 100px, 150px 150px, 200px 200px;
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: -1;
+}
+/* Subtle vintage film border effect */
+.container {
+    max-width: 375px; /* iPhone aspect ratio width */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark overlay */
+    border: 2px solid #333; /* Subtle border for vintage feel */
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+/* Header section */
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #ffffff; /* White border for circular image */
+}
+.artist-name {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Clean, modern styling */
+}
+.subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: #cccccc; /* Subtle gray for subtitle */
+    text-transform: lowercase; /* As specified */
+    margin-bottom: 40px; /* Generous vertical spacing */
+}
+/* Main content: Pill-shaped buttons */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Vertical spacing between buttons */
+}
+.button {
+    display: block;
+    padding: 15px 30px;
+    background-color: #ffffff; /* White buttons */
+    color: #000000; /* Dark text */
+    text-decoration: none;
+    border-radius: 50px; /* Pill shape */
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+}
+.button:hover, .button:active {
+    transform: scale(1.05); /* Slight scale on hover/tap */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+/* Footer */
+.footer {
+    margin-top: 50px; /* Generous spacing */
+    text-align: center;
+}
+.instagram-icon {
+    width: 40px;
+    height: 40px;
+    fill: #ffffff; /* White icon */
+    transition: opacity 0.3s ease;
+}
+.instagram-icon:hover {
+    opacity: 0.7;
+}
+/* Responsive adjustments for larger screens */
+@media (min-width: 768px) {
+    .container {
+        max-width: 500px; /* Slightly wider on tablets */
+        padding: 40px;
+    }
+    .artist-name {
+        font-size: 32px;
+    }
+    .subtitle {
+        font-size: 18px;
+    }
+    .button {
+        font-size: 20px;
+        padding: 18px 35px;
+    }
+}
+/* Accessibility: Focus styles for keyboard navigation */
+.button:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
